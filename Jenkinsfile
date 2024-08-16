@@ -1,5 +1,5 @@
 pipeline{
-    agent{ label 'dotnet' }
+    agent{ label 'DotNet' }
     options{
         timeout(time: 30, unit: 'MINUTES')
     }
