@@ -25,6 +25,7 @@ pipeline{
             zip zipFile: 'published/Nop.Web.zip',
                 archive: 'true',
                 dir: './published'
+                overwrite : 'true'
             archiveArtifacts artifacts: 'published/Nop.Web.zip'
         
         }
