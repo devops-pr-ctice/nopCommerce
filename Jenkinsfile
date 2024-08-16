@@ -4,13 +4,13 @@ pipeline{
         timeout(time: 30, unit: 'MINUTES')
     }
     triggers{
-        pollSCM('*****')
+        pollSCM('H * * * *')
     }
     stages{
         stage('checkout'){
             steps{
-                git url: 'https://github.com/devops-pr-ctice/nopCommerce.git',
-                    branch: 'develop'
+                    git url: 'https://github.com/devops-pr-ctice/nopCommerce.git',
+                        branch: 'develop'
             }
         }
         stage('build'){
@@ -22,10 +22,10 @@ pipeline{
     }
     post{
         success{
-            zip zipFile: './published/Nop.Web.zip',
+            zip zipFile: 'published/Nop.Web.zip',
                 archive: 'true',
                 dir: './published'
-            archiveArtifacts artifacts: './published/Nop.Web.zip'
+            archiveArtifacts artifacts: 'published/Nop.Web.zip'
         
         }
     }
