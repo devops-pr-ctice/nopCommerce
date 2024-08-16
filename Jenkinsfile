@@ -7,26 +7,26 @@ pipeline{
         pollSCM('*****')
     }
     stages{
-        stage(checkout){
+        stage('checkout'){
             steps{
                 git url: 'https://github.com/devops-pr-ctice/nopCommerce.git',
                     branch: 'develop'
             }
         }
-        stage(build){
+        stage('build'){
             steps{
                 sh 'mkdir ./published'
                 sh 'dotnet build --configuration Release --output ./published ./src/Presentation/Nop.Web/Nop.Web.csproj'
             }
         }
-        post{
-            success{
-                zip:
-                    zipFile: './published/Nop.Web.zip'
-                    archive: 'true'
-                    dir: './published'
-                archieveArtifacts artifact: './published/Nop.Web.zip'
-            }
+    }
+    post{
+        success{
+            zip zipFile: './published/Nop.Web.zip',
+                archive: 'true',
+                dir: './published'
+            archiveArtifacts artifacts: './published/Nop.Web.zip'
+        
         }
     }
 }
