@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label 'DOTNET8'
+        label 'dotnet8'
     }
     options {
         timeout(time: 30, unit: 'MINUTES')
@@ -13,7 +13,7 @@ pipeline{
         choice(name: 'CONFIGURATION', choices: ['Debug','Release'])
     }
     tools{
-        dotnet 'DOTNET'
+        dotnet 'DOTNET8'
     }
     stages{
         stage('SCM'){
