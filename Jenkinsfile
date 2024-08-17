@@ -13,7 +13,7 @@ pipeline{
         choice(name: 'CONFIGURATION', choices: ['Debug','Release'])
     }
     tools{
-        dotnet 'dotnetsdk'
+        dotnetsdk 'dotnetsdk'
     }
     stages{
         stage('SCM'){
