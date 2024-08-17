@@ -25,7 +25,7 @@ pipeline{
         stage(build){
             steps{
                 sh 'mkdir -p ./published'
-                sh 'dotnet publish -c "${params.CONFIGURATION}" --output ./published ./src/Presentation/Nop.Web/Nop.Web.csproj'
+                sh  "dotnet publish -c ${params.CONFIGURATION} --output ./published ./src/Presentation/Nop.Web/Nop.Web.csproj"
             }
         }
     }
