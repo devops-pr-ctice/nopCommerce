@@ -18,7 +18,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git url: 'https://github.com/devops-pr-ctice/nopCommerce.git'
+                git url: 'https://github.com/devops-pr-ctice/nopCommerce.git',
                 branch: "${params.BRANCH}"
             }
         }
@@ -31,9 +31,9 @@ pipeline{
     }
     post{
         success{
-            zip zipFile: 'published/Nop.Web.zip'
-                archive: 'true'
-                dir: 'published'
+            zip zipFile: 'published/Nop.Web.zip',
+                archive: 'true',
+                dir: 'published',
                 overwrite: 'true'
             archiveArtifacts artifacts: 'published/Nop.Web.zip'
         }
