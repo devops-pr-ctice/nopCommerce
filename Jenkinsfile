@@ -6,7 +6,7 @@ pipeline{
         timeout(time: 30, unit: 'MINUTES')
     }
     triggers {
-        pollSCM ('H * * * 1-5')
+        pollSCM ('* * * * *')
     }
     parameters{
         string(name: 'BRANCH', defaultValue: 'master')
