@@ -1,12 +1,12 @@
 pipeline{
     agent{
-        label 'dotnet8'
+        label 'dev-node'
     }
     options {
         timeout(time: 30, unit: 'MINUTES')
     }
     triggers {
-        pollSCM ('* * * * *')
+        pollSCM ('H/30 * * * *')
     }
     parameters{
         string(name: 'BRANCH', defaultValue: 'master')
