@@ -37,9 +37,14 @@ pipeline{
                 overwrite: 'true'
             archiveArtifacts artifacts: 'published/Nop.Web.zip'
 
-            mail to: test_test.com
+            mail to: 'pramod.pramod36@gmail.com'
                  subject: "Build suceed: ${env.BUILD_ID}, ${env.BUILD_DISPLAY_NAME}"
                  body:"The build was successful. Check it out at: ${env.BUILD_URL}"
+        }
+        failure{
+            mail to: 'pramod.pramod36@gmail.com'
+                 subject: "Build failure: ${env.BUILD_ID}, ${env.BUILD_DISPLAY_NAME}"
+                 body:"The build was failure. Check it out at: ${env.BUILD_URL}"
         }
     }
 }
